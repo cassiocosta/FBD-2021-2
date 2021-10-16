@@ -25,15 +25,46 @@ CREATE TABLE PEDIDOS (
   	DATA DATE,
   	COD_FORNECEDORES INT NOT NULL,
   	COD_PRODUTOS INT NOT NULL,
-  	CONSTRAINT FK_PEDIDOS_FORNECEDORES FOREIGN KEY (COD_FORNECEDORES)
+  	CONSTRAINT FK_PEDIDOS_FORNECEDORES
+	  FOREIGN KEY (COD_FORNECEDORES)
   		REFERENCES FORNECEDORES (CODIGO)
   			on update CASCADE 
   			on delete RESTRICT,
   	CONSTRAINT FK_PEDIDOS_PRODUTOS FOREIGN KEY (COD_PRODUTOS) 
   		REFERENCES PRODUTOS (CODIGO)
-    		on update CASCADE 
+    		on update CASCADE
   			on delete RESTRICT
 );
+
+/*
+
+UPDATE E DELETE PODEM VARIAR EM 
+CASCADE | RESTRICT | set null
+
+*/
+
+FORNECEDORES
+codigo nome		
+100		Meli
+200		Gerdau	
+300		Ulbra
+
+update fornecedores 
+	set codigo=900
+where codigo = 100
+
+DELETE FROM fornecedores
+where codigo =100;
+
+
+PEDIDOS
+codigo	data		cod_fornecedor
+1		2021/05/14	100
+2		2021/05/15	200
+3		2021/05/13	200
+4		2021/10/14	300
+5		2021/10/15	300
+
 
 
 -- 3 - Faça um comando (FUC) para adicionar o campo data_ultima_compra na tabela fornecedor.
@@ -64,14 +95,14 @@ ALTER TABLE PRODUTOS
 
 
 -- ------------------------------------------
-# 7 - FUC para aumentar o tamanho do domínio do campo nome do fornecedor para mais 30 caracteres.
+-- 7 - FUC para aumentar o tamanho do domínio do campo nome do fornecedor para mais 30 caracteres.
 ALTER TABLE FORNECEDORES
   MODIFY NOME VARCHAR(80) NOT NULL;
     
-# 8 - FUC para apagar a tabela fornecedor. Explique o que vai acontecer com o seu esquema e as consequências disso.
+-- 8 - FUC para apagar a tabela fornecedor. Explique o que vai acontecer com o seu esquema e as consequências disso.
 DROP TABLE FORNECEDORES;
 
-# 9 - Adicionar numero do pedido
+-- 9 - Adicionar numero do pedido
 ALTER TABLE PEDIDOS
   ADD COLUMN NUMERO_PEDIDO VARCHAR(255) NOT NULL;
   
