@@ -1,10 +1,11 @@
-
 CREATE TABLE cidades
 (
     ID serial NOT NULL PRIMARY KEY,
     nome VARCHAR(50) NOT NULL,
     UF CHAR(2) NOT NULL
 );
+
+
 
 insert into cidades (nome, uf)
 	values('Torres','RS'),('Capão','RS'),('Itapema','SC');
@@ -32,6 +33,10 @@ CREATE TABLE pacientes
   		on update CASCADE
 );
 
+-- adicionar o campo endereço em pacientes??
+alter table pacientes add COLUMN endereco varchar(70);
+alter table pacientes add COLUMN telefone varchar(20);
+
 CREATE TABLE consultas
 (
     ID serial NOT NULL PRIMARY KEY,
@@ -46,6 +51,38 @@ CREATE TABLE consultas
     		on delete RESTRICT
   		on update CASCADE
 );
+select * from cidades
+INSERT INTO cidades (nome, uf)
+    VALUES ('Rondônia','RO'),('Acre','AC'),('Amazonas','AM'),('Roraima','RR'),('Pará','PA'),('Amapá','AP'),('Tocantins','TO'),('Maranhão','MA'),('Piauí','PI'),('Ceará','CE'),('Rio Grande do Norte','RN'),('Paraíba','PB'),('Pernambuco','PE'),('Alagoas','AL'),('Sergipe','SE'),('Bahia','BA'),('Minas Gerais','MG'),('Espírito Santo','ES'),('Rio de Janeiro','RJ'),('São Paulo','SP'),('Paraná','PR'),('Santa Catarina','SC'),('Rio Grande do Sul','RS'),('Mato Grosso do Sul','MS');
+
+
+INSERT into medicos(nome, fone, cidade_id)
+values
+('Pedro', 'xxxxxxx', 1),
+('Ana', 'xxxxxxx', 2),
+('Tiago', 'xxxxxxx', 3),
+('João', 'xxxxxxx', 1),
+('Patricia', 'xxxxxxx', 3),
+('Maria', 'xxxxxxx', 3);
+
+
+INSERT INTO pacientes (nome,endereco,telefone,cidade_id)
+ VALUES
+    ('Marcos','Rua verde','05188557766', 01),
+    ('Julia','Rua vermelha','05499887755', 02),
+    ('Maria','Rua azul','05499112233', 03);
+  
+    select * from medicos 
+       select * from pacientes
+   
+    INSERT INTO consultas(data_consulta, valor, medico_id, paciente_id)
+VALUES
+('2021/10/21', 120, 25, 1),
+('2021/03/11', 170, 29, 2),
+('2021/07/17', 120, 26, 1),
+('2021/11/12', 170, 30, 3),
+('2021/12/23', 250, 30, 3),
+('2021/09/01', 150, 28, 2);
 
 -- Pegar os médicos que moram em Torres.... O código de Torres é 2333
 Select  *
@@ -94,9 +131,9 @@ limit
 
 
 
--- Todos os médicos que já atenderam algum paciente da cidade de Torres.
+-- 5 - Todos os médicos que já atenderam algum paciente da cidade de Torres.
 
--- Médico: Atendente, pf. ve qual foi a última vez que eu atendi a Rafaela e 
+-- 6 Médico: Atendente, pf. ve qual foi a última vez que eu atendi a Rafaela e 
 -- de qual cidade ela é?
 
 
