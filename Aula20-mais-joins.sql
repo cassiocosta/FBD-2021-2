@@ -350,3 +350,168 @@ VALUES
   ('2033-07-03 16:54:19', 90),
   ('2023-11-09 04:07:02', 85),
   ('2028-06-15 19:14:09', 12);
+
+  INSERT INTO
+  notas_itens (id_produto, id_nota, quantidade, valor_unit)
+VALUES
+  (70, 97, 198.56, 783.00),
+  (81, 39, 390.35, 971.00),
+  (3, 96, 779.65, 773.00),
+  (83, 48, 604.54, 862.00),
+  (88, 1, 654.41, 716.00),
+  (15, 53, 104.29, 897.00),
+  (77, 93, 332.59, 405.00),
+  (43, 54, 92.35, 156.00),
+  (52, 41, 250.35, 185.00),
+  (83, 63, 723.87, 611.00),
+  (21, 96, 851.88, 359.00),
+  (71, 79, 879.96, 571.00),
+  (62, 69, 368.95, 616.00),
+  (17, 51, 829.19, 932.00),
+  (71, 13, 484.15, 50.00),
+  (10, 39, 862.21, 581.00),
+  (30, 54, 878.09, 213.00),
+  (8, 31, 396.41, 950.00),
+  (28, 16, 234.38, 557.00),
+  (83, 52, 217.61, 612.00),
+  (43, 62, 330.52, 618.00),
+  (2, 84, 990.57, 738.00),
+  (3, 26, 303.83, 469.00),
+  (24, 63, 853.32, 816.00),
+  (43, 5, 916.71, 823.00),
+  (94, 20, 828.36, 868.00),
+  (1, 59, 719.88, 709.00),
+  (86, 28, 485.34, 486.00),
+  (22, 63, 714.45, 938.00),
+  (87, 59, 124.67, 141.00),
+  (44, 96, 758.20, 705.00),
+  (18, 51, 892.28, 117.00),
+  (76, 78, 266.50, 458.00),
+  (21, 5, 642.02, 684.00),
+  (100, 23, 500.55, 757.00),
+  (67, 75, 282.34, 351.00),
+  (96, 1, 309.02, 742.00),
+  (10, 29, 571.79, 295.00),
+  (15, 48, 43.90, 529.00),
+  (25, 24, 69.09, 409.00),
+  (88, 61, 451.69, 64.00),
+  (1, 57, 628.91, 476.00),
+  (45, 39, 201.22, 830.00),
+  (95, 21, 260.74, 96.00),
+  (13, 88, 404.96, 862.00),
+  (21, 72, 98.59, 621.00),
+  (28, 11, 8.50, 328.00),
+  (83, 86, 624.50, 161.00),
+  (55, 38, 486.63, 993.00),
+  (79, 95, 795.91, 244.00),
+  (23, 78, 462.17, 518.00),
+  (47, 35, 484.80, 462.00),
+  (78, 11, 38.82, 891.00),
+  (10, 6, 331.22, 521.00),
+  (98, 15, 738.67, 222.00),
+  (98, 18, 379.68, 274.00),
+  (56, 88, 475.73, 338.00),
+  (70, 49, 270.95, 325.00),
+  (71, 47, 326.71, 465.00),
+  (32, 51, 811.28, 891.00),
+  (41, 27, 256.99, 692.00),
+  (89, 37, 503.80, 976.00),
+  (8, 91, 708.14, 459.00),
+  (39, 16, 655.72, 628.00),
+  (14, 24, 738.65, 652.00),
+  (49, 100, 238.01, 652.00),
+  (33, 1, 47.29, 134.00),
+  (58, 70, 66.58, 893.00),
+  (20, 60, 384.26, 998.00),
+  (87, 5, 598.59, 262.00),
+  (62, 57, 509.69, 761.00),
+  (85, 66, 813.16, 353.00),
+  (34, 100, 118.07, 779.00),
+  (11, 73, 294.18, 55.00),
+  (30, 54, 753.24, 815.00),
+  (67, 99, 509.17, 459.00),
+  (94, 91, 264.41, 990.00),
+  (62, 55, 260.31, 817.00),
+  (48, 100, 615.75, 548.00),
+  (60, 15, 980.74, 943.00),
+  (92, 21, 604.96, 312.00),
+  (72, 2, 387.30, 953.00),
+  (27, 74, 169.36, 278.00),
+  (32, 97, 716.99, 277.00),
+  (37, 98, 968.36, 774.00),
+  (55, 68, 89.34, 736.00),
+  (9, 1, 780.43, 761.00),
+  (58, 95, 720.01, 831.00),
+  (86, 19, 661.24, 659.00),
+  (49, 98, 503.90, 109.00),
+  (57, 11, 90.07, 873.00),
+  (93, 59, 177.47, 788.00),
+  (60, 15, 890.64, 959.00),
+  (79, 89, 379.88, 295.00),
+  (64, 91, 265.42, 807.00),
+  (3, 79, 771.82, 804.00),
+  (45, 28, 689.24, 421.00),
+  (81, 5, 908.78, 388.00),
+  (1, 73, 388.51, 127.00),
+  (67, 54, 856.48, 349.00);
+
+
+
+-- sql joins
+/*
+clientes (id, nome)
+produtos (id, descricao, valor_unit)
+notas (Id, data_emissao, id_cliente)
+notas_itens (id, id_nota, id_produto, quantidade, val_unit) */
+
+-- FUS que retorne quais notas foram emitidas no mês de set de 2021
+-- ordenadas pelas notas mais recentes...
+select  *
+FROM    notas
+WHERE   data between '2021-09-01' and '2021-09-30'
+order by data DESC
+
+-- FUS que retorne quais notas foram emitidas no mês de set de 2021
+-- ordenadas pelas notas mais recentes... 
+-- E TBM que mostre o cliente de cada nota
+select  n.id, data_emissao, id_cliente, c.nome
+FROM    notas n
+            inner join clientes c 
+                on n.id_cliente = c.id
+WHERE   data_emissao between '2000-01-01' and '2021-09-30'
+order by data_emissao desc, nome ASC, valor_unit desc
+
+2021-05-09
+2021-05-05	Alan
+2021-05-05	Cassio	
+2021-05-05	Roger	
+2021-05-05	Willian
+
+
+-- FUS que retorne quais produtos foram comprados
+-- no natal do ano passado. Mostre o nome dos produtos e o valor no qual
+-- eles foram comprados.
+-- mostre somente os produtos vendidos com valor acima de 500 e 
+-- que os produtos no qual os valores da época estão menores que os 
+-- valores atuais.
+
+select  n.id, n.data_emissao, ni.id_produto, p.descricao as produto, 
+        ni.valor_unit as preco_venda_na_epoca, p.valor_unit as valor_atual
+from    notas n 
+            inner join notas_itens ni
+                on ni.id_nota = n.id
+            inner join produtos p 
+                on p.id = ni.id_produto
+WHERE   n.data_emissao between '2000-01-01' and '2021-09-30'
+		and ni.valor_unit>=500 and ni.valor_unit>p.valor_unit
+order by ni.valor_unit asc
+
+/*
+1- onde está a inf que diz que o produto foi 
+    comprado por alguem em alguma data?  Em notas_itens e Notas
+2- como eu faço pra descobrir o tempo que um prod. foi comprado?
+    na tab notas no atributo data_emissão
+3- onde guarda o nome de cada produto? em produtos
+4- eu tenho 2 val_uni.. qual eu devo usar? qual me mostra a inf. de compra?
+o val_uni da tabela notas_itens
+*/
