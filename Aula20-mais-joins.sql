@@ -515,3 +515,79 @@ order by ni.valor_unit asc
 4- eu tenho 2 val_uni.. qual eu devo usar? qual me mostra a inf. de compra?
 o val_uni da tabela notas_itens
 */
+
+
+
+
+select  n.id, n.data_emissao, ni.id_produto, p.descricao as produto, 
+        ni.valor_unit as preco_venda_na_epoca, p.valor_unit as valor_atual
+from    notas n 
+            inner join notas_itens ni
+                on ni.id_nota = n.id
+            inner join produtos p 
+                on p.id = ni.id_produto
+WHERE   n.data_emissao between '2010-01-01' and '2021-12-31'
+        and ni.valor_unit>=500 and ni.valor_unit>p.valor_unit
+order by n.data_emissao asc
+  
+  -- pegando todas as vendas entre 2010 e 2020 somente do dia 20.
+  -- postgres
+  select *
+  from notas
+   where EXTRACT(day from data_emissao)=20 and 
+   		(EXTRACT(YEAR from data_emissao)>=2010 and EXTRACT(YEAR from data_emissao)<=2021)
+ 
+ 
+ -- mysql
+ where day(data_emissao)=25 and (year(data_emissao)>=2010 and year(data_emissao)<=2021)
+  select DISTINCT EXTRACT(year from data_emissao) from notas
+
+
+-- faça um sql quais clientes que mais compraram produtos
+
+group by????
+
+Salas
+316
+326
+324
+
+alunos_Salas
+id_sala    id_aluno     nome_aluno
+316         100         Maria
+316         101         Rodrigo
+316         102         Digo
+316         103         Douglas
+326         104         Cássio
+326         105         Rafa
+324         106         Tiago    
+
+-- quanto alunos eu tenho em cada sala?
+select id_sala, count(id_aluno) as quantos
+from alunos_salas
+group by sala
+
+sala    num_alunos
+316     4
+326     2
+324     1
+
+
+-- qual os dois clientes que mais compraram
+  select id_cliente, count(ID) AS QUANTOS
+  from notas
+  group by id_cliente
+  ORDER BY QUANTOS DESC
+  LIMIT 2
+
+-- quais são os 5 produtos mais vendidos numa data
+SELECT	    ni.id_produto, pr.descricao, sum(ni.quantidade) as quantidade_total
+FROM 	    notas_itens ni 
+                join produtos pr
+                    on ni.id_produto = pr.id
+                JOIN notas n 
+                    on ni.id_nota = n.id
+where 	    n.data_emissao between '2010-01-01' and '2021-12-31'
+GROUP BY    ni.id_produto, pr.descricao
+ORDER BY    quantidade_total DESC
+limit 5
