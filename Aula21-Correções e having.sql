@@ -31,3 +31,26 @@ from		notas_itens NI
 WHERE		N.data_emissao>= '2021-11-01' AND N.data_emissao<='2021-11-30'
 GROUP BY	NI.id_produto
 ORDER BY	media_valor_unitario DESC
+
+
+-- 2 - FUS que mostre os a quantidade de produtos que foram comprados pelos clientes cujo o nome começa com Maria. 
+-- Pode mostrar o nome do produto, o nome da Maria (similar) e a quantidade comprada. 
+-- Similar porque podem ter várias Marias.
+-- 2 - FUS que mostre os a quantidade de produtos que foram comprados pelos clientes cujo o nome começa com Maria. 
+-- Pode mostrar o nome do produto, o nome da Maria (similar) e a quantidade comprada. 
+-- Similar porque podem ter várias Marias.
+
+-- requisito adiciona para utilizar o HAVING
+    -- mostrar somente os produtos quantidades agrupadas maior que 1000 - linha 55
+SELECT	     c.nome as cliente, p.descricao as produto, sum(ni.quantidade) as quantidade_produtos
+FROM 	    notas n
+                JOIN clientes c
+                    on n.id_cliente = c.id
+                JOIN notas_itens ni
+                    on ni.id_nota = n.id
+                JOIN produtos p
+                    on ni.id_produto = p.id
+where 	    c.nome ilike 'maria%'
+GROUP BY    c.nome, p.descricao
+HAVING		sum(ni.quantidade) >1000
+order by 	c.nome asc
