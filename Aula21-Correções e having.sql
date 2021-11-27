@@ -54,3 +54,45 @@ where 	    c.nome ilike 'maria%'
 GROUP BY    c.nome, p.descricao
 HAVING		sum(ni.quantidade) >1000
 order by 	c.nome asc
+
+-- 3 - NA consulta anterior, 
+-- acrescente saber qual foi o produto que mais foi comprado.
+SELECT	     c.nome as cliente, p.descricao as produto, sum(ni.quantidade) as quantidade_produtos
+FROM 	    notas n
+                JOIN clientes c
+                    on n.id_cliente = c.id
+                JOIN notas_itens ni
+                    on ni.id_nota = n.id
+                JOIN produtos p
+                    on ni.id_produto = p.id
+GROUP BY    c.nome, p.descricao
+order by 	quantidade_produtos desc
+limit 		1
+
+
+-- 4 - qual o produto mais caro que um cliente comprou num determinado período
+-- (sua escolha).
+SELECT produtos.descricao, MAX(produtos.valor_unit) as max_value  
+FROM notas 
+    JOIN notas_itens
+        on notas_itens.id_nota = notas.id
+    JOIN produtos
+        on notas_itens.id_produto = produtos.id
+WHERE notas.data_emissao >= '2020-12-01' AND notas.data_emissao <= '2020-12-31'
+GROUP BY produtos.id
+ORDER BY max_value DESC
+LIMIT 1
+
+
+-- 4 - qual o produto mais caro que um cliente comprou num determinado período
+-- (sua escolha).
+SELECT produtos.id, produtos.descricao, MAX(notas_itens.valor_unit) as max_value  
+FROM notas 
+    JOIN notas_itens
+        on notas_itens.id_nota = notas.id
+    JOIN produtos
+        on notas_itens.id_produto = produtos.id
+WHERE notas.data_emissao >= '2020-12-01' AND notas.data_emissao <= '2020-12-31'
+GROUP BY produtos.id, produtos.descricao
+ORDER BY max_value DESC
+LIMIT 1
